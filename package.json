@@ -14,9 +14,9 @@
   "license": "MIT",
   "author": "Bjoern Kimminich <bjoern.kimminich@owasp.org> (https://kimminich.de)",
   "main": "index.ts",
-  "bin": {
-    "juicy-coupon-bot": "node --loader ts-node/esm bin/juicy-coupon-bot.ts"
-  },
+"bin": {
+  "juicy-coupon-bot": "npx tsx $(npm root -g)/juicy-coupon-bot/bin/juicy-coupon-bot.ts"
+},
   "scripts": {
     "lint": "eslint index.ts bin lib --ext .ts",
     "lint:fix": "eslint index.ts bin lib --ext .ts --fix",
