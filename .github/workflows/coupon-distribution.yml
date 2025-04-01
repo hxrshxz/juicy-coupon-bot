@@ -2,7 +2,7 @@ name: "Monthly Coupon Distribution"
 on:
   schedule:
     - cron: "1 1 1 * *"
-  workflow_dispatch: # Allow manual triggering of the workflow
+  workflow_dispatch: 
 jobs:
   distribute:
     runs-on: ubuntu-latest
@@ -23,13 +23,13 @@ jobs:
         run: |
           echo "PUBLISHING_MODE=true" >> $GITHUB_ENV
       - name: "Distribute coupons"
-        run: juicy-coupon-bot
-        env:
-          BLUESKY_IDENTIFIER: ${{ secrets.BLUESKY_IDENTIFIER }}
-          BLUESKY_PASSWORD: ${{ secrets.BLUESKY_PASSWORD }}
-          REDDIT_ACCOUNT_NAME: ${{ secrets.REDDIT_ACCOUNT_NAME }}
-          REDDIT_ACCOUNT_PASSWORD: ${{ secrets.REDDIT_ACCOUNT_PASSWORD }}
-          REDDIT_APP_ID: ${{ secrets.REDDIT_APP_ID }}
-          REDDIT_APP_SECRET: ${{ secrets.REDDIT_APP_SECRET }}
-          MASTODON_URL: ${{ secrets.MASTODON_URL }}
-          MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
+        run: ts-node ./bin/juicy-coupon-bot.ts
+        # env:
+        #   BLUESKY_IDENTIFIER: ${{ secrets.BLUESKY_IDENTIFIER }}
+        #   BLUESKY_PASSWORD: ${{ secrets.BLUESKY_PASSWORD }}
+        #   REDDIT_ACCOUNT_NAME: ${{ secrets.REDDIT_ACCOUNT_NAME }}
+        #   REDDIT_ACCOUNT_PASSWORD: ${{ secrets.REDDIT_ACCOUNT_PASSWORD }}
+        #   REDDIT_APP_ID: ${{ secrets.REDDIT_APP_ID }}
+        #   REDDIT_APP_SECRET: ${{ secrets.REDDIT_APP_SECRET }}
+        #   MASTODON_URL: ${{ secrets.MASTODON_URL }}
+        #   MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
