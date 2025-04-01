@@ -2,7 +2,7 @@ name: "Monthly Coupon Distribution"
 on:
   schedule:
     - cron: "1 1 1 * *"
-  workflow_dispatch: 
+  workflow_dispatch:
 jobs:
   distribute:
     runs-on: ubuntu-latest
@@ -17,12 +17,12 @@ jobs:
       #   run: |
       #     npm install
       - name: "Install latest published module from NPM"
-        run: npm i -g juicy-coupon-bot tsx
+        run: npm i -g juicy-coupon-bot ts-node typescript
       - name: "Activate publishing mode"
         run: |
           echo "PUBLISHING_MODE=true" >> $GITHUB_ENV
       - name: "Distribute coupons"
-        run: npx tsx juicy-coupon-bot
+        run: npx juicy-coupon-bot
         # env:
         #   BLUESKY_IDENTIFIER: ${{ secrets.BLUESKY_IDENTIFIER }}
         #   BLUESKY_PASSWORD: ${{ secrets.BLUESKY_PASSWORD }}
