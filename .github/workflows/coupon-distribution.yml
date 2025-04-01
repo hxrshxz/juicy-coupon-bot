@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: 20
       - name: "Install latest published module from NPM"
-        run: npm i -g juicy-coupon-bot tsx
+        run: npm i -g juicy-coupon-bot
       - name: "Activate publishing mode"
         run: |
           echo "PUBLISHING_MODE=true" >> $GITHUB_ENV
