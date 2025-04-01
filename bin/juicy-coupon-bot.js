@@ -1,2 +1,5 @@
 #!/usr/bin/env node
-require('tsx/cli').cli(require.resolve('./juicy-coupon-bot.ts'));
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+require('ts-node').register({ transpileOnly: true });
+require('../bin/juicy-coupon-bot.ts');
