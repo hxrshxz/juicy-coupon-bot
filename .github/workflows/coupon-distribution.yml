@@ -23,7 +23,7 @@ jobs:
         run: |
           echo "PUBLISHING_MODE=true" >> $GITHUB_ENV
       - name: "Distribute coupons"
-        run: --loader ts-node/esm bin/juicy-coupon-bot.ts
+        run: node --loader ts-node/esm bin/juicy-coupon-bot.ts
         # env:
         #   BLUESKY_IDENTIFIER: ${{ secrets.BLUESKY_IDENTIFIER }}
         #   BLUESKY_PASSWORD: ${{ secrets.BLUESKY_PASSWORD }}
